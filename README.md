@@ -7,7 +7,7 @@ We've realized there are no wallets or apps that show you your profits and losse
 -- Git/Github installation [https://www.theodinproject.com/lessons/foundations-setting-up-git](https://www.theodinproject.com/lessons/foundations-setting-up-git)\
 --Node/Nvm installation [https://www.theodinproject.com/lessons/foundations-installing-node-js](https://www.theodinproject.com/lessons/foundations-installing-node-js)
 
-[2. then once everything is installed, git clone this project]
+[2. then once everything is installed, git clone this project]\
 -- watch youtube on how to git clone a repository if stuck
 
 [3. once you're in the project terminal, run "npm i" to install all node packages]
