@@ -18,6 +18,10 @@ We've realized there are no wallets or apps that show you your profits and losse
 ### Notes
 You will not have a .env file in your project because if you look at the .gitignore file, you'll see that .env is in there, meaning .env files from local machine will not be pushed to the github. This is necessary because you don't want to expose your API keys in the .env file. Msg me for the api key or create your own and replace the BASE_API=YOUR_API_KEY. I'll also have a .env.example file to reference off of
 
-### TIps
+### Tips
 - To run your index.js file, type "node index.js" (make sure you're in the right directory). 
 - Console.log("hello world") is your best friend
+
+### Key links for this project
+- [Base API Documentation](https://docs.basescan.org/getting-started/creating-an-account)
+- [Basescan to look at transactions](https://basescan.org/)
