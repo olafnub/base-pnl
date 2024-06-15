@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base PNL Project</title>
+</head>
+<body>
+    <h1>Welcome</h1>
+    <label for="address">Address:</label>
+    <input type="text" id="address" name="address" value="0xF9A8e801172c6Bc0ac8B9236879cFA16e1928ABb">
+    <button id="fetchData">Fetch Data</button>
+    <!-- <pre id="result"></pre> -->
+</body>
+<script>
+    // https://youtu.be/Kw5tC5nQMRY?si=UbZRJpUPUdkImVp9 explains how the fetch and get works
+    // https://youtu.be/5TxF9PQaq4U?si=-Y06VqerpJmmsnHQ passing data between front and back-end | node.js
+    document.getElementById('fetchData').addEventListener('click', () => {
+        const address = document.getElementById('address').value;
+        fetch('/base-api', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ address })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            // document.getElementById('result').textContent = JSON.stringify(data, null, 2);
+        })
+        .catch(err => {
+            console.error('Error:', err);
+        });
+    });
+</script>
+</html>
