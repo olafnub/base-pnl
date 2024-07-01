@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "wad",
     "start": "nodemon index.js"
   },
   "author": "",

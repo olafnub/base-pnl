@@ -4,46 +4,114 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Base PNL Project</title>
+    <link rel="stylesheet" href="custom.css">
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <!-- <script src="script.js"></script> -->  
 </head>
 <body>
-    <h1>Welcome</h1>
-    <label for="address">Address:</label>
-    <input type="text" id="address" name="address" value="0xF9A8e801172c6Bc0ac8B9236879cFA16e1928ABb">
-    <button id="fetchData">Fetch Data</button>
-    <!-- <pre id="result"></pre> -->
+    <div class="navigation">
+        <h1 class="playfair-display">Base OnChain Summer</h1>
+        <div class="connectWallet">
+            <img style="width: 75px"src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/MetaMask_Fox.svg/1200px-MetaMask_Fox.svg.png">
+            <button id="connectWalletButton">Connect Metamask</button>
+        </div>
+    </div>
+    <nav>
+    <h3>Check a wallet's total deposit and withdraw for specific tokens</h3>
+    <!-- <p>Incentive: It's nice to keep track of your spending</p> -->
+    </nav>
+    <div class="form">
+        <label for="userAddress">Choose an Address:</label>
+        <input list="userAddress" id="user_address" name="userAddress" class="inputForm" placeholder="Select or type your own">
+        <datalist id="userAddress">
+            <option value="Crash's wallet">
+        </datalist>
+        <label for="tokenAddress">Token Address:</label>
+        <input list="tokenList" id="token_address" name="tokenAddress" class="inputForm" placeholder="Token address">
+        <datalist id="tokenList">
+            <option value="Brett's address">
+            <option value="Toshi's address">
+        </datalist>
+    </div>
+    <button id="fetchData">Check spending</button>
+    <pre id="result"></pre>
+
+    <footer>
+        <p>Made by Adam Kidane and Andy Li</p>
+    </footer>
+    
+    <script>
+  
+        // Identify the accounts and connect MetaMask to the website.
+        function connect() {
+            ethereum.request({
+                method: 'eth_requestAccounts'     // Use the eth_requestAccounts method to promt the user to select and connect an account.
+             
+             // Log and error in the console if the user refuses the connection. 
+            }).then(handleAccountsChanged).catch((error) => {    
+                if (error.code === 4001) {
+                    // EIP-1193 userRejectedRequest error
+                    console.log('Please connect to MetaMask.');
+                } else {
+                    console.error(error);
+                }
+            });
+        }
+       </script>
 </body>
 <script>
     // https://youtu.be/Kw5tC5nQMRY?si=UbZRJpUPUdkImVp9 explains how the fetch and get works
     // https://youtu.be/5TxF9PQaq4U?si=-Y06VqerpJmmsnHQ passing data between front and back-end | node.js
+
+    let userSelect = document.getElementById('user_address')
+    userSelect.addEventListener('change', () => { 
+        if (userSelect.value == "Crash's wallet") {
+            userSelect.value = "0x55CAFC85C68cC2F558fA4dA995173ED6CEbE213d"
+        }
+    })
+
+    let tokenSelect = document.getElementById('token_address')
+    tokenSelect.addEventListener('change', () => {
+        if (tokenSelect.value == "Brett's address") {
+            tokenSelect.value = "0x532f27101965dd16442E59d40670FaF5eBB142E4"
+        } else if (tokenSelect.value == "Toshi's address") {
+            tokenSelect.value = "0xAC1Bd2486aAf3B5C0fc3Fd868558b082a531B2B4"
+        }
+    })
+
     document.getElementById('fetchData').addEventListener('click', () => {
-        const address = document.getElementById('address').value;
+        let userAddress = document.getElementById('user_address').value;
+        const tokenAddress = document.getElementById('token_address').value;
+
+        const data = {
+            userAddress: userAddress,
+            tokenAddress: tokenAddress
+        }
+
         fetch('/base-api', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ address })
+            body: JSON.stringify(data)
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data)
-            // document.getElementById('result').textContent = JSON.stringify(data, null, 2);
+            if (data >= 0) {
+                document.getElementById('result').style.color = "green"
+            } else {
+                document.getElementById('result').style.color = "red"
+            }
+            let res = JSON.stringify(data, null, 2);
+            let text = `Bought and sold: $${res}`
+            document.getElementById('result').textContent = text;
         })
         .catch(err => {
             console.error('Error:', err);
         });
-
-
-        // TASK: Making the homepage - IGNORE most of the stuff on index.html for now
-        // Find out how to import metamask wallet connect
-        //  1. Make a "connect wallet" button in <body></body> above
-        //  2. Everytime the button is clicked, it prompts user to sign in with their metamask wallet
-        // Styling the page you want using css
-        //  1. find out how to import css pages into index.html
-        //  2. how to style using div elements, and then how classes work (classes are important for styling)
-        //  3. If stuck trying to style the page, search up how to use flex in css
-        // Extra
-        //  1. There are header elements such as <h1></h1> for the header of a page 
 
     });
 </script>
