@@ -1,9 +1,14 @@
-import Image from "next/image";
+import FormAddress from './components/FormAddress'
 
-export default function Home() {
-  return (
-    <main>
-      <h1>HI</h1>
-    </main>
-  );
+const AppPage = () => {
+    return (
+      <>
+      <main>
+        <h1>View Deposits on Cryptocurrencies</h1>
+        <p>Keep track of your finance and spendings</p>
+        <FormAddress />
+      </main>
+      </>
+    )
 }
+export default AppPage
