@@ -1,14 +1,17 @@
+import Hero from './components/Hero'
 import FormAddress from './components/FormAddress'
 
 const AppPage = () => {
     return (
-      <>
-      <main>
-        <h1>View Deposits on Cryptocurrencies</h1>
-        <p>Keep track of your finance and spendings</p>
-        <FormAddress />
-      </main>
-      </>
+      <section>
+        <div className="pt-20 sm:pt-30 w-full h-[860px] flex flex-col sm:flex-row justify-evenly">
+          <Hero />
+          <FormAddress />
+        </div>
+        <div>
+          
+        </div>
+      </section>
     )
 }
 export default AppPage
