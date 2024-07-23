@@ -11,13 +11,13 @@ import { useWallet } from "../../context"
 
 const SelectBlockchain = () => {
 
-    const { setBlockchain } = useWallet()
+  const { setBlockchain } = useWallet()
 
-    const handleBlockchainChange = (value: string) => {
-      setBlockchain(value)
-    }
+  const handleBlockchainChange = (value: string) => {
+    setBlockchain(value)
+  }
 
-    const blockchains = ["Solana", "Ethereum", "Base"]
+  const blockchains = ["Solana", "Ethereum", "Base"]
     
   return (
     <>

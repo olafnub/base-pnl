@@ -1,18 +1,25 @@
 'use client'
 
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './assets/Navbar.css'
+import LoadNav from './NavBarHelpers/LoadNav'
 
 const Navbar = () => {
   
-  const [isClick, setIsClick] = useState(false);
+  const [openNavBar, setOpenNavBar] = useState(false);
 
   const toggleNavBar = () => {
-    setIsClick(!isClick)
+    setOpenNavBar(!openNavBar)
   }
 
-  const navigation = ["Learn", "FAQ", "Contact"]
+  useEffect(() => {
+    if (openNavBar) {
+      document.body.classList.add("overflow-y-hidden")
+    } else {
+      document.body.classList.remove("overflow-y-hidden")
+    }
+  }, [openNavBar])
 
   return (
     <nav className="border-b-2 text-white">
@@ -24,13 +31,7 @@ const Navbar = () => {
             </div>
           </div>
           <div className="hidden md:block">
-            <div className="ml-4 flex items-center space-x-4">
-              {navigation.map((nav, index) => (
-                <Link key={index} className="text-white hover:bg-white hover:text-black rounded-lg p-2" href={`/${nav}`}>
-                  {nav}
-                </Link>
-              ))}
-            </div>
+              <LoadNav />
           </div>
           <div className="md:hidden flex items-center">
               <button
@@ -38,7 +39,7 @@ const Navbar = () => {
               hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
               onClick={toggleNavBar}
               >
-                {isClick ? (
+                {openNavBar ? (
                   <svg  className="h-6 w-6"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -67,15 +68,9 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      {isClick && (
-        <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                {navigation.map((nav, index) => (
-                    <Link key={index} href={`/${nav}`} className="text-white block hover:bg-white hover:text-black rounded-lg p-2">
-                      {nav}
-                    </Link>
-                ))}
-            </div>
+      {openNavBar && (
+        <div className="md:hidden h-screen">
+              <LoadNav />
         </div>
       )}
     </nav>

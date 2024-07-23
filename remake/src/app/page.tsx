@@ -2,11 +2,7 @@ import Hero from './components/Hero'
 import FormAddress from './components/FormAddress'
 import {
   Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
+  CardContent
 } from "@/app/components/ui/card"
 
 const AppPage = () => {
