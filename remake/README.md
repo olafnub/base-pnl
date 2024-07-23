@@ -38,3 +38,13 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ## Future
 
 - Be ENS compatible
+- Available with different languages
+
+## Tasks
+
+- Figure out how to change components in aliases for components.json. Everytime we add from shadcn, it creates a new file, we want it to instead go straight to ./src/app/components/ui
+
+Documentation
+
+- (How the Link component in Nextjs works - we don't use a href)[https://nextjs.org/docs/pages/api-reference/components/link]
+- (Making website responsive using Tailwind CSS)[https://youtu.be/PuovsjZN11Y?si=8wMLdVxhjI_DBwKF]
