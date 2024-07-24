@@ -27,7 +27,6 @@ export default function RootLayout({
             {children}
           </main>
           <footer>
-            
           </footer>
       </body>
       </WalletProvider>
