@@ -5,6 +5,8 @@ const LoadNav = () => {
     
     const navigation = ["Learn", "FAQ", "Contact"]
 
+    // Fix up some classes that are no used
+    // Add some delay to the opening up the navbar on mobile
     return (
         <>
         <ul className="ml-1 flex list-none flex-col gap-8 sm:items-center sm:flex-row sm:space-x-4 sm:gap-4">
