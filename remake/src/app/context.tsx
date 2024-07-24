@@ -27,7 +27,7 @@ export const WalletProvider: React.FC<{ children: ReactNode }> = ({ children }) 
 
 export const useWallet = () => {
     const context = useContext(WalletContext);
-    console.log(context)
+
     if (!context) {
       throw new Error('useWallet must be used within a WalletProvider');
     }
