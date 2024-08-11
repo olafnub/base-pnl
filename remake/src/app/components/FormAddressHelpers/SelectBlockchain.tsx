@@ -11,7 +11,7 @@ import { useWallet } from "../../context"
 
 const SelectBlockchain = () => {
 
-  const { setBlockchain } = useWallet()
+  const { blockchain, setBlockchain } = useWallet()
 
   const handleBlockchainChange = (value: string) => {
     setBlockchain(value)
@@ -21,9 +21,9 @@ const SelectBlockchain = () => {
     
   return (
     <>
-    <Select onValueChange={handleBlockchainChange}>
+    <Select onValueChange={handleBlockchainChange} value={blockchain}>
         <SelectTrigger className="w-full text-white">
-            <SelectValue placeholder="Select blockchain" />
+            <SelectValue placeholder="Select blockchain"/>
         </SelectTrigger>
         <SelectContent>
             {blockchains.map((blockchain, index) => (
