@@ -16,8 +16,6 @@ const WalletAddress = () => {
         setUserAddress(walletAddress)
     }
 
-    console.log(userAddress)
-
   return (
     <>
     <label htmlFor="user_address">Wallet Address: </label>

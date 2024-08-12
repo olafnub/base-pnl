@@ -1,7 +1,6 @@
 'use client'
 import React from 'react'
 import { useWallet } from '../../context'
-import '../assets/Navbar.css'
 
 // For tokens, Brett, Toshi, etc...
 
