@@ -5,6 +5,11 @@
 html {
   color: #F3E2F8;
   background-color: #10002b;
+  transition: 1s;
+}
+
+:hover {
+  transition-delay: 0.1s;
 }
 
 @layer base {

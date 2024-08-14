@@ -6,28 +6,45 @@ import { useWallet } from "../../context"
 const ViewTransactionsButton = () => {
 
   const { userAddress, tokenAddress, blockchain } = useWallet()
+  
+  // reload the page / revalidate the request when Link is clicked
+
+  const reloadPage = () => {
+    window.location.reload();
+  }
+
+  // onClick={() => window.location.reload()}
 
   const LinkWrapper = () => {
     if (userAddress && tokenAddress && blockchain) {
       return (
-        <Link href="/view-transactions" className="text-center">
-          <Button variant="secondary" className="bg-primary text-primary-foreground hover:bg-primary/90 w-full">
+        <Link href={{
+          pathname: '/view-transactions',
+          query: {
+            user: userAddress,
+            token: tokenAddress,
+            chain: blockchain.toLowerCase()
+          }
+        }}
+        className="text-center"
+        >
+          <Button variant="default" className="w-full border b-1 border-accent">
             View Transactions
           </Button>
         </Link>
       )
     } else {
       return (
-        <Button variant="secondary" className="bg-primary text-primary-foreground hover:bg-primary/90 w-full" style={{cursor: "not-allowed"}}>
+        <button style={{cursor: "not-allowed"}} className="bg-primary text-primary-foreground w-full h-10">
           View Transactions
-        </Button>
+        </button>
       )
     }
   }
 
   return (
     <>
-    <LinkWrapper />
+      <LinkWrapper />
     </>
   )
 }
