@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "./components/NavBar";
 import { WalletProvider } from "./context"
+import Socials from "./components/Socials"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,6 +32,9 @@ export default function RootLayout({
           </footer>
       </body>
       </WalletProvider>
+      <footer>
+        <Socials />
+      </footer>
     </html>
   );
 }

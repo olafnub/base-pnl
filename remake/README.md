@@ -53,6 +53,8 @@ b. If you don't want to save the changes you have locally and only want the chan
 - Available with different languages
 - Account for gas during transaction
 - Account for transactions sent to the wallet
+- Have open positions to be seen in deposited and logs (also shows the platform used)
+- Be able to click on a tranasction which leads to the chain scan link
 
 ## Tasks
 
