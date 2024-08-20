@@ -17,7 +17,8 @@ const SelectBlockchain = () => {
     setBlockchain(value)
   }
 
-  const blockchains = ["Solana", "Ethereum", "Base"]
+  // const blockchains = ["Solana", "Ethereum", "Base"]
+  const blockchains = ["Base"]
     
   return (
     <>
