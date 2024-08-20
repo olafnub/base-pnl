@@ -31,7 +31,7 @@ const Navbar = () => {
           <div className="flex items-center align-center">
             <div style={{alignItems: "center"}}className="flex-shrink-0 flex">
             <LinkPreview
-                url="https://www.flaticon.com/authors/edtim"
+                url="https://www.walletdiscover.com/"
                 className="font-bold bg-clip-text text-transparent bg-gradient-to-br from-purple-500 to-pink-500"
               >
                 <Image 
