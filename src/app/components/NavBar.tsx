@@ -4,6 +4,9 @@ import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import './assets/Navbar.css'
 import LoadNav from './NavBarHelpers/LoadNav'
+import Image from "next/image"
+import favIcon from "../favicon.ico"
+import { LinkPreview } from "../components/ui/link-preview"
 
 const Navbar = () => {
   
@@ -25,9 +28,20 @@ const Navbar = () => {
     <nav className="border-b-2 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center">
-            <div className="flex-shrink-0">
-              <Link href="/">Wallet Finance</Link> { /* Will replace with image of our logo in the future */}
+          <div className="flex items-center align-center">
+            <div style={{alignItems: "center"}}className="flex-shrink-0 flex">
+            <LinkPreview
+                url="https://www.flaticon.com/authors/edtim"
+                className="font-bold bg-clip-text text-transparent bg-gradient-to-br from-purple-500 to-pink-500"
+              >
+                <Image 
+                src={favIcon}
+                alt="magnifying glass"
+                width={50}
+                height={50}
+                />
+              </LinkPreview>{" "}
+              <Link href="/">Wallet Discover</Link> { /* Will replace with image of our logo in the future */}
             </div>
           </div>
           <div className="hidden md:block">

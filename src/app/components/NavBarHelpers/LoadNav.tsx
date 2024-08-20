@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 const LoadNav = () => {
     
-    const navigation = ["Learn", "FAQ", "Contact"]
+    const navigation = ["Learn", "FAQ"]
 
     // Fix up some classes that are no used
     // Add some delay to the opening up the navbar on mobile

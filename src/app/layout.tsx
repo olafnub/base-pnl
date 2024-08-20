@@ -7,7 +7,7 @@ import Socials from "./components/Socials"
 import Script from "next/script"
 
 export const metadata: Metadata = {
-  title: "Wallet Finance",
+  title: "Wallet Discover",
   description: "Keep Track of Your Crypto Finance",
 };
 
@@ -21,6 +21,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+
+        {/* website icon from https://www.flaticon.com/authors/edtim */}
 
       {/* <!-- Google tag (gtag.js) --> */}
         <Script async src={`https://www.googletagmanager.com/gtag/js?id=G-${GOOGLE_KEY}`}></Script>
